@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: ShauryaGarg
   productName: IIT XR Project
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 101c108e3b37cb646b8e9fb91b8a503e, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -139,7 +139,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1
+  bundleVersion: 2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -392,7 +392,7 @@ PlayerSettings:
     m_Icons:
     - m_Textures:
       - {fileID: 2800000, guid: 101c108e3b37cb646b8e9fb91b8a503e, type: 3}
-      - {fileID: 0}
+      - {fileID: 2800000, guid: 101c108e3b37cb646b8e9fb91b8a503e, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
