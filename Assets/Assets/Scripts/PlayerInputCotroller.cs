@@ -4,6 +4,8 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
+//Note: This is currently in Development
+
 public class PlayerInputCotroller : MonoBehaviour
 {
     public Transform sphereTransform;

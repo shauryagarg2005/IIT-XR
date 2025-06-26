@@ -1,46 +1,50 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RotationSlider : MonoBehaviour
+namespace Shaurya_Sample
 {
-    public GameObject target;
 
-    [Header("Sliders")]
-    public Slider rotateXSlider;
-    public Slider rotateYSlider;
-    public Slider rotateZSlider;
-
-    [Header("Rotation Amount (± range)")]
-    public float rotateAmount = 180f;
-
-    private Vector3 defaultRotation;
-
-    private void Start()
+    public class RotationSlider : MonoBehaviour
     {
-        // Store the default rotation in Euler angles
-        defaultRotation = target.transform.eulerAngles;
+        public GameObject target;
 
-        // Initialize rotations
-        ApplyRotation();
+        [Header("Sliders")]
+        public Slider rotateXSlider;
+        public Slider rotateYSlider;
+        public Slider rotateZSlider;
 
-        // Add listeners for all 3 sliders
-        rotateXSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
-        rotateYSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
-        rotateZSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
-    }
+        [Header("Rotation Amount (± range)")]
+        public float rotateAmount = 180f;
 
-    private void ApplyRotation()
-    {
-        float xOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateXSlider.value);
-        float yOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateYSlider.value);
-        float zOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateZSlider.value);
+        private Vector3 defaultRotation;
 
-        Vector3 newRotation = new Vector3(
-            defaultRotation.x + xOffset,
-            defaultRotation.y + yOffset,
-            defaultRotation.z + zOffset
-        );
+        private void Start()
+        {
 
-        target.transform.eulerAngles = newRotation;
+            defaultRotation = target.transform.eulerAngles;
+
+
+            ApplyRotation();
+
+
+            rotateXSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
+            rotateYSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
+            rotateZSlider.onValueChanged.AddListener(delegate { ApplyRotation(); });
+        }
+
+        private void ApplyRotation()
+        {
+            float xOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateXSlider.value);
+            float yOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateYSlider.value);
+            float zOffset = Mathf.Lerp(-rotateAmount, rotateAmount, rotateZSlider.value);
+
+            Vector3 newRotation = new Vector3(
+                defaultRotation.x + xOffset,
+                defaultRotation.y + yOffset,
+                defaultRotation.z + zOffset
+            );
+
+            target.transform.eulerAngles = newRotation;
+        }
     }
 }

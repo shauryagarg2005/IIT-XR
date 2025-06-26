@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Note: this is currently in Development
 public class ModelInteraction : MonoBehaviour
 {
     [Header("Zoom Settings")]
@@ -31,7 +31,7 @@ public class ModelInteraction : MonoBehaviour
 
     private void HandleMouseInput()
     {
-        // Zoom with scroll wheel
+        
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (Mathf.Abs(scroll) > 0.01f)
         {
@@ -40,7 +40,7 @@ public class ModelInteraction : MonoBehaviour
             transform.localScale = ClampScale(newScale);
         }
 
-        // Rotate with right mouse button drag
+        
         if (Input.GetMouseButton(1))
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
@@ -68,7 +68,7 @@ public class ModelInteraction : MonoBehaviour
         }
         else if (Input.touchCount == 2)
         {
-            // Pinch to Zoom
+            
             Touch t0 = Input.GetTouch(0);
             Touch t1 = Input.GetTouch(1);
 

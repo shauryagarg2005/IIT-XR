@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraZoomSlider : MonoBehaviour
+namespace Shaurya_Sample
 {
-    public Camera targetCamera;
-    public Slider zoomSlider;
-    public float zoomAmount = 2f;
-    private float defaultZ;
-
-    private void Start()
+    public class CameraZoomSlider : MonoBehaviour
     {
-        defaultZ = targetCamera.transform.position.z;
-        OnZoomValueChanged(zoomSlider.value);
-        zoomSlider.onValueChanged.AddListener(OnZoomValueChanged);
-    }
+        public Camera targetCamera;
+        public Slider zoomSlider;
+        public float zoomAmount = 2f;
+        private float defaultZ;
 
-    public void OnZoomValueChanged(float value)
-    {
-        float offset = Mathf.Lerp(-zoomAmount, zoomAmount, value);
+        private void Start()
+        {
+            defaultZ = targetCamera.transform.position.z;
+            OnZoomValueChanged(zoomSlider.value);
+            zoomSlider.onValueChanged.AddListener(OnZoomValueChanged);
+        }
 
-        Vector3 pos = targetCamera.transform.position;
-        pos.z = defaultZ + offset;
-        targetCamera.transform.position = pos;
+        public void OnZoomValueChanged(float value)
+        {
+            float offset = Mathf.Lerp(-zoomAmount, zoomAmount, value);
+
+            Vector3 pos = targetCamera.transform.position;
+            pos.z = defaultZ + offset;
+            targetCamera.transform.position = pos;
+        }
     }
 }
